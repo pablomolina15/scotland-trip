@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Escocia 2026 · Pablo & Partner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Source+Serif+4:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="grain"></div>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <p class="hero-sub">26 julio — 5 agosto 2026</p>
+      <h1>Escocia<br/><em>The Wild North</em></h1>
+      <p class="hero-desc">11 días · Edimburgo → Highlands → Costa Oeste → Skye → Regreso</p>
+      <div class="hero-badges">
+        <span class="badge">✈ EDI · 09:30 llegada</span>
+        <span class="badge highlight">🏅 Commonwealth Games Glasgow</span>
+        <span class="badge">⚔ Highland Games × 3</span>
+        <span class="badge">🚗 Coche de alquiler</span>
+      </div>
+      <a href="#itinerario" class="cta">Ver itinerario completo ↓</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat"><span class="stat-n">10</span><span class="stat-l">días</span></div>
+      <div class="stat"><span class="stat-n">~900</span><span class="stat-l">km en coche</span></div>
+      <div class="stat"><span class="stat-n">8</span><span class="stat-l">destinos</span></div>
+    </div>
+  </header>
+
+  <!-- COCHE ALQUILER -->
+  <section class="info-banner" id="coche">
+    <div class="container">
+      <div class="banner-icon">🚗</div>
+      <div class="banner-body">
+        <h2>Coche de alquiler</h2>
+        <p>Recoge el coche en el <strong>aeropuerto de Edimburgo (EDI)</strong> al llegar el 26 de julio. Devuélvelo en el mismo aeropuerto el 5 de agosto antes de las 19:00 h. Recuerda que en Escocia se conduce <strong>por la izquierda</strong>.</p>
+        <div class="car-options">
+          <div class="car-card">
+            <div class="car-rank">⭐ Recomendado</div>
+            <h3>Enterprise Rent-A-Car</h3>
+            <p>Mejor valorado en EDI. Pide un <strong>SUV pequeño automático</strong> (ej. Skoda Karoq o similar) — ideal para pistas de Highland. ~60–80 €/día con seguro completo.</p>
+            <a href="https://www.enterprise.co.uk" target="_blank" class="btn-small">enterprise.co.uk →</a>
+          </div>
+          <div class="car-card">
+            <h3>Arnold Clark</h3>
+            <p>Empresa escocesa local, muy buena relación calidad-precio. Oficina en el aeropuerto. ~50–70 €/día.</p>
+            <a href="https://www.arnoldclarkrental.com" target="_blank" class="btn-small">arnoldclark.com →</a>
+          </div>
+          <div class="car-card">
+            <h3>Hertz / Avis</h3>
+            <p>Opción internacional si prefieres fidelización. Siempre disponibles en EDI. ~70–90 €/día.</p>
+            <a href="https://www.hertz.co.uk" target="_blank" class="btn-small">hertz.co.uk →</a>
+          </div>
+        </div>
+        <div class="tip">💡 <strong>Consejo:</strong> Reserva con varios meses de antelación. El seguro "waiver completo" (CDW + TP + personal) vale la pena. Tanque lleno → tanque lleno.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAPA RUTA GENERAL -->
+  <section class="map-section" id="ruta">
+    <div class="container">
+      <h2 class="section-title">La ruta completa</h2>
+      <p class="section-sub">De sur a norte y vuelta por la costa oeste</p>
+      <div id="map-general" class="map-embed"></div>
+      <div class="route-line">
+        <div class="route-stop">Edimburgo</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Glasgow</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Loch Lomond</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Glencoe</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Fort William</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Inverness</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Speyside</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Skye</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Stirling</div>
+        <div class="route-arrow">→</div>
+        <div class="route-stop">Edimburgo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ITINERARIO -->
+  <section id="itinerario" class="itinerario-section">
+    <div class="container">
+      <h2 class="section-title">Itinerario día a día</h2>
+      <p class="section-sub">Cada etapa con mapa, hoteles, restaurantes y entradas</p>
+      <div id="days-container"></div>
+    </div>
+  </section>
+
+  <!-- HIGHLAND GAMES DESTACADOS -->
+  <section class="games-section" id="games">
+    <div class="container">
+      <h2 class="section-title">⚔ Highland Games en tu ruta</h2>
+      <p class="section-sub">Tres eventos coinciden exactamente con tus fechas</p>
+      <div class="games-grid">
+        <div class="game-card featured">
+          <div class="game-date">Sáb 1 ago</div>
+          <h3>Newtonmore Highland Games</h3>
+          <p class="game-loc">📍 The Eilan, Newtonmore (Cairngorms)</p>
+          <p>Uno de los más auténticos del interior de Escocia. Lanzamiento de caber, martillo, danza y gaitas. Está en tu ruta hacia Speyside ese día.</p>
+          <div class="game-badge">✅ En tu itinerario</div>
+        </div>
+        <div class="game-card featured">
+          <div class="game-date">Dom 2 ago</div>
+          <h3>Bridge of Allan Highland Games</h3>
+          <p class="game-loc">📍 Games Park, Bridge of Allan (Stirling)</p>
+          <p>A solo 15 min de Stirling. Perfecto para incluirlo en el trayecto de vuelta hacia Edimburgo o como excursión desde allí.</p>
+          <div class="game-badge">✅ En tu itinerario</div>
+        </div>
+        <div class="game-card bonus">
+          <div class="game-date">Lun 27 jul – Sáb 1 ago</div>
+          <h3>🏅 Glasgow 2026 Commonwealth Games</h3>
+          <p class="game-loc">📍 Scotstoun Stadium, Glasgow</p>
+          <p>Atletismo del 27 jul al 1 ago. Llegas el 26 → puedes ver atletismo en Glasgow el 27. Sprints, 1500m, obstáculos. ¡No te lo pierdas!</p>
+          <a href="https://www.glasgow2026.com" target="_blank" class="btn-small light">Entradas oficiales →</a>
+          <div class="game-badge highlight">🔥 No te lo pierdas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia 2026 · Pablo & Partner · Buen viaje</p>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
