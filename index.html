@@ -1,142 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Escocia 2026 · Pablo</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;1,300;1,600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet"/>
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-<link rel="stylesheet" href="style.css"/>
-<link rel="stylesheet" href="pins.css"/>
-</head>
-<body>
-
-<nav class="topnav">
-  <span class="nav-logo">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia 2026</span>
-  <div class="nav-links">
-    <a href="#itinerario">Itinerario</a>
-    <a href="#games">Highland Games</a>
-    <a href="#coche">Coche</a>
-  </div>
-</nav>
-
-<section class="hero">
-  <div class="hero-text">
-    <p class="hero-eyebrow">26 julio — 5 agosto 2026</p>
-    <h1>Escocia<br/><em>The Wild North</em></h1>
-    <div class="hero-meta">
-      <div class="hm-item"><span class="hm-n">11</span><span class="hm-l">días</span></div>
-      <div class="hm-div"></div>
-      <div class="hm-item"><span class="hm-n">~950</span><span class="hm-l">km</span></div>
-      <div class="hm-div"></div>
-      <div class="hm-item"><span class="hm-n">3</span><span class="hm-l">Highland Games</span></div>
-    </div>
-    <div class="hero-chips">
-      <span class="chip gold">✈ EDI · 09:30 llegada</span>
-      <span class="chip red">🏅 Commonwealth Games</span>
-      <span class="chip">⚔ Newtonmore · Bridge of Allan</span>
-    </div>
-    <a href="#itinerario" class="hero-cta">Ver el viaje ↓</a>
-  </div>
-  <div class="hero-map-wrap">
-    <div id="hero-map"></div>
-    <div class="map-legend">
-      <span class="leg-dot"></span><span>Ruta del viaje</span>
-      <span class="leg-dot gold"></span><span>Highland Games</span>
-    </div>
-  </div>
-</section>
-
-<div class="strip">
-  <div class="strip-item">🚗 Coche en EDI · día 1</div>
-  <div class="strip-sep">·</div>
-  <div class="strip-item">🏔 Ben Nevis · Glencoe · Skye</div>
-  <div class="strip-sep">·</div>
-  <div class="strip-item">🥃 Speyside Whisky Trail</div>
-  <div class="strip-sep">·</div>
-  <div class="strip-item">🚂 Jacobite Steam Train</div>
-  <div class="strip-sep">·</div>
-  <div class="strip-item">⚔ 3 eventos Highland Games</div>
-</div>
-
-<section id="itinerario" class="section-itin">
-  <div class="itin-header">
-    <h2>Itinerario día a día</h2>
-    <p>Mapas, hoteles, restaurantes y entradas para cada etapa</p>
-  </div>
-  <div id="days-root"></div>
-</section>
-
-<section id="games" class="section-games">
-  <div class="inner">
-    <h2>⚔ Highland Games en tu ruta</h2>
-    <p class="sec-sub">Tres eventos que coinciden exactamente con tus fechas</p>
-    <div class="games-grid">
-      <div class="gc gold-gc">
-        <div class="gc-date">Lun 27 jul — Sáb 1 ago</div>
-        <h3>🏅 Commonwealth Games Glasgow</h3>
-        <p class="gc-loc">📍 Scotstoun Stadium · Glasgow</p>
-        <p>Atletismo de élite mundial. Llegas el 26 → ves atletismo el 27. Sprints, 1500m, obstáculos, saltos. Una oportunidad única.</p>
-        <a href="https://www.glasgow2026.com" target="_blank" class="gc-btn">Entradas oficiales ↗</a>
-        <span class="gc-badge fire">🔥 Imprescindible</span>
-      </div>
-      <div class="gc">
-        <div class="gc-date">Sábado 1 agosto</div>
-        <h3>⚔ Newtonmore Highland Games</h3>
-        <p class="gc-loc">📍 The Eilan · Newtonmore · Cairngorms</p>
-        <p>Uno de los más auténticos del interior de Escocia. Lanzamiento de caber, martillo, gaitas y danza highland. En tu ruta ese día.</p>
-        <a href="https://newtonmorehighlandgames.co.uk" target="_blank" class="gc-btn">Ver más ↗</a>
-        <span class="gc-badge green">✅ En tu itinerario</span>
-      </div>
-      <div class="gc">
-        <div class="gc-date">Domingo 2 agosto</div>
-        <h3>⚔ Bridge of Allan Highland Games</h3>
-        <p class="gc-loc">📍 Games Park · Bridge of Allan · Stirling</p>
-        <p>A 15 minutos de Stirling. Perfecto para el penúltimo día en el trayecto de vuelta hacia Edimburgo.</p>
-        <a href="#" target="_blank" class="gc-btn">Ver más ↗</a>
-        <span class="gc-badge green">✅ En tu itinerario</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="coche" class="section-coche">
-  <div class="inner">
-    <h2>🚗 Coche de alquiler</h2>
-    <p class="sec-sub">Recoge en EDI el 26 julio · Devuelve el 5 agosto antes de las 19:00</p>
-    <div class="alert-box">⚠ En Escocia se conduce <strong>por la izquierda</strong>. Solicita automático si no estás habituado. Para las Highlands un SUV compacto es ideal para pistas de tierra.</div>
-    <div class="car-grid">
-      <div class="car-card best-car">
-        <div class="car-tag">⭐ Recomendado</div>
-        <h3>Enterprise Rent-A-Car</h3>
-        <p>Mejor valorado en EDI. Pide SUV automático (Skoda Karoq o similar). Seguro completo CDW incluido.</p>
-        <div class="car-price">~60–80 €/día</div>
-        <a href="https://www.enterprise.co.uk" target="_blank" class="gc-btn">enterprise.co.uk ↗</a>
-      </div>
-      <div class="car-card">
-        <h3>Arnold Clark</h3>
-        <p>Empresa escocesa local, oficina en el aeropuerto. Muy buena relación calidad-precio.</p>
-        <div class="car-price">~50–70 €/día</div>
-        <a href="https://www.arnoldclarkrental.com" target="_blank" class="gc-btn">arnoldclark.com ↗</a>
-      </div>
-      <div class="car-card">
-        <h3>Hertz / Avis</h3>
-        <p>Opción internacional para fidelización de puntos. Siempre disponibles en EDI.</p>
-        <div class="car-price">~70–90 €/día</div>
-        <a href="https://www.hertz.co.uk" target="_blank" class="gc-btn">hertz.co.uk ↗</a>
-      </div>
-    </div>
-    <p class="car-tip">💡 <strong>Consejo:</strong> Reserva con meses de antelación. El seguro "waiver completo" (CDW + TP + personal) vale la pena. Política tanque lleno → tanque lleno.</p>
-  </div>
-</section>
-
-<footer>
-  <p>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia 2026 · Pablo & Partner · ¡Buen viaje!</p>
-</footer>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="data.js"></script>
-<script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escocia 2026 · Pablo</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏴󠁧󠁢󠁳󠁣󠁴󠁿</text></svg>" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
