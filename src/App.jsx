@@ -23,24 +23,6 @@ const C = {
 //   return ready
 // }
 
-function HeroMap() {
-  const mapRef = useRef(null); // Para el contenedor del DOM
-  const instanceRef = useRef(null); // Para guardar la instancia del mapa
-
-  useEffect(() => {
-    // Solo inicializa si no existe ya
-    if (!instanceRef.current) {
-      instanceRef.current = L.map('map-id').setView([55.96, -3.22], 11);
-      
-      L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-      }).addTo(instanceRef.current);
-    }
-  }, []);
-
-  return <div id="map-id" style={{ height: '400px', width: '100%' }} />;
-}
-
 // function HeroMap() {
 //   const ref = useRef(null); const mapRef = useRef(null); const L = useLeaflet()
 //   useEffect(() => {
@@ -62,20 +44,70 @@ function HeroMap() {
 //   return <div ref={ref} style={{ width:'100%', height:'100%', background:'#1a2530' }} />
 // }
 
-function DayMap({ day }) {
-  const ref = useRef(null); const mapRef = useRef(null); const L = useLeaflet()
+// function DayMap({ day }) {
+//   const ref = useRef(null); const mapRef = useRef(null); const L = useLeaflet()
+//   useEffect(() => {
+//     if (!L || !ref.current || mapRef.current) return
+//     const map = window.L.map(ref.current, { center:day.mapCenter, zoom:day.mapZoom, zoomControl:false, scrollWheelZoom:false, attributionControl:false })
+//     mapRef.current = map
+//     window.L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(map)
+//     if (day.pts.length > 1) window.L.polyline(day.pts.map(p=>[p.lat,p.lng]),{ color:C.gold, weight:2, opacity:0.7, dashArray:'5 4' }).addTo(map)
+//     day.pts.forEach((p,i) => {
+//       const icon = window.L.divIcon({ html:`<div style="width:22px;height:22px;border-radius:50%;background:#8b1a1a;border:2px solid rgba(255,255,255,0.35);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:sans-serif">${i+1}</div>`, className:'', iconSize:[22,22], iconAnchor:[11,11] })
+//       window.L.marker([p.lat,p.lng],{icon}).bindPopup(`<b>${p.n}</b>`,{closeButton:false,maxWidth:160}).addTo(map)
+//     })
+//   }, [L])
+//   return <div ref={ref} style={{ width:'100%', height:'100%', background:'#1a2530' }} />
+// }
+
+// 1. Reemplaza tu HeroMap actual por este:
+function HeroMap() {
+  const ref = useRef(null); 
+  const mapRef = useRef(null); 
+  
   useEffect(() => {
-    if (!L || !ref.current || mapRef.current) return
-    const map = window.L.map(ref.current, { center:day.mapCenter, zoom:day.mapZoom, zoomControl:false, scrollWheelZoom:false, attributionControl:false })
-    mapRef.current = map
-    window.L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(map)
-    if (day.pts.length > 1) window.L.polyline(day.pts.map(p=>[p.lat,p.lng]),{ color:C.gold, weight:2, opacity:0.7, dashArray:'5 4' }).addTo(map)
+    if (!ref.current || mapRef.current) return;
+    const map = L.map(ref.current, { center:[56.8,-4.5], zoom:6, zoomControl:false, scrollWheelZoom:false, attributionControl:false });
+    mapRef.current = map;
+    
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(map);
+    L.polyline(ROUTE, { color:C.gold, weight:2.5, opacity:0.8, dashArray:'7 5' }).addTo(map);
+    
+    const stops = [[[55.9503,-3.1883],'Edimburgo'],[[55.8642,-4.2518],'Glasgow'],[[56.6818,-5.02],'Glencoe'],[[56.8191,-5.1073],'Fort William'],[[57.4778,-4.2247],'Inverness'],[[57.4652,-3.226],'Speyside'],[[57.4127,-6.196],'Isle of Skye'],[[56.1232,-3.9467],'Stirling']];
+    stops.forEach(([ll,name]) => {
+      const icon = L.divIcon({ html:`<div style="width:10px;height:10px;border-radius:50%;background:${C.mist};border:2px solid rgba(255,255,255,0.45)"></div>`, className:'', iconSize:[10,10], iconAnchor:[5,5] });
+      L.marker(ll,{icon}).bindPopup(`<b style="color:${C.goldLt}">${name}</b>`,{closeButton:false}).addTo(map);
+    });
+    
+    [[55.8783,-4.3589,'Commonwealth Games · Glasgow'],[57.059,-4.1381,'Newtonmore Highland Games'],[56.1557,-3.944,'Bridge of Allan Highland Games']].forEach(([lat,lng,label]) => {
+      const icon = L.divIcon({ html:`<div style="width:26px;height:26px;border-radius:50%;background:rgba(200,144,42,0.2);border:2px solid ${C.gold};display:flex;align-items:center;justify-content:center;font-size:12px;animation:pulse-gold 2s infinite">⚔</div>`, className:'', iconSize:[26,26], iconAnchor:[13,13] });
+      L.marker([lat,lng],{icon}).bindPopup(`<b style="color:${C.goldLt}">${label}</b>`,{closeButton:false}).addTo(map);
+    });
+  }, []);
+  
+  return <div ref={ref} style={{ width:'100%', height:'100%', background:'#1a2530' }} />;
+}
+
+// 2. Reemplaza tu DayMap actual por este:
+function DayMap({ day }) {
+  const ref = useRef(null); 
+  const mapRef = useRef(null); 
+  
+  useEffect(() => {
+    if (!ref.current || mapRef.current) return;
+    const map = L.map(ref.current, { center:day.mapCenter, zoom:day.mapZoom, zoomControl:false, scrollWheelZoom:false, attributionControl:false });
+    mapRef.current = map;
+    
+    L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png', { subdomains:'abcd', maxZoom:19 }).addTo(map);
+    if (day.pts.length > 1) L.polyline(day.pts.map(p=>[p.lat,p.lng]),{ color:C.gold, weight:2, opacity:0.7, dashArray:'5 4' }).addTo(map);
+    
     day.pts.forEach((p,i) => {
-      const icon = window.L.divIcon({ html:`<div style="width:22px;height:22px;border-radius:50%;background:#8b1a1a;border:2px solid rgba(255,255,255,0.35);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:sans-serif">${i+1}</div>`, className:'', iconSize:[22,22], iconAnchor:[11,11] })
-      window.L.marker([p.lat,p.lng],{icon}).bindPopup(`<b>${p.n}</b>`,{closeButton:false,maxWidth:160}).addTo(map)
-    })
-  }, [L])
-  return <div ref={ref} style={{ width:'100%', height:'100%', background:'#1a2530' }} />
+      const icon = L.divIcon({ html:`<div style="width:22px;height:22px;border-radius:50%;background:#8b1a1a;border:2px solid rgba(255,255,255,0.35);color:#fff;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;font-family:sans-serif">${i+1}</div>`, className:'', iconSize:[22,22], iconAnchor:[11,11] });
+      L.marker([p.lat,p.lng],{icon}).bindPopup(`<b>${p.n}</b>`,{closeButton:false,maxWidth:160}).addTo(map);
+    });
+  }, [day]);
+  
+  return <div ref={ref} style={{ width:'100%', height:'100%', background:'#1a2530' }} />;
 }
 
 function GMStars({ rating }) {
