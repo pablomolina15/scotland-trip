@@ -93,6 +93,7 @@ function DayMap({ day }) {
   const ref = useRef(null); 
   const mapRef = useRef(null); 
   
+  
   useEffect(() => {
     if (!ref.current || mapRef.current) return;
     const map = L.map(ref.current, { center:day.mapCenter, zoom:day.mapZoom, zoomControl:false, scrollWheelZoom:false, attributionControl:false });
