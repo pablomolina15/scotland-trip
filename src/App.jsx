@@ -391,10 +391,6 @@ export default function App() {
         input::placeholder{color:rgba(255,255,255,0.25)}
         input:focus,select:focus{outline:1px solid rgba(200,144,42,0.5)}
         @media(max-width:768px){
-          .hero-grid{grid-template-columns:1fr!important;min-height:auto!important}
-          .hero-map-col{height:280px;border-left:none!important;border-top:1px solid rgba(255,255,255,0.07)}
-          .hero-text-col{padding:64px 20px 28px!important}
-          .strip{display:none!important}
           .day-body-grid{grid-template-columns:1fr!important}
           .day-col-2{border-right:none!important;border-top:1px solid rgba(255,255,255,0.07)!important}
           .day-map-col{border-left:none!important;border-top:1px solid rgba(255,255,255,0.07)!important}
@@ -415,48 +411,6 @@ export default function App() {
         </div>
       </nav>
 
-      <div className="hero-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', minHeight:'calc(100vh - 50px)', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
-        <div className="hero-text-col" style={{ display:'flex', flexDirection:'column', justifyContent:'center', padding:'60px 48px 60px 44px', background:'linear-gradient(140deg,#0d2018 0%,#0d1117 100%)' }}>
-          <div style={{ fontSize:10, textTransform:'uppercase', letterSpacing:'0.28em', color:C.gold, marginBottom:16 }}>26 julio — 5 agosto 2026</div>
-          <div style={{ fontFamily:'Georgia,serif', lineHeight:0.88, marginBottom:8 }}>
-            <div style={{ fontSize:'clamp(44px,5vw,76px)', fontWeight:600, color:'#fff' }}>Escocia</div>
-            <div style={{ fontSize:'clamp(24px,2.6vw,40px)', fontWeight:300, fontStyle:'italic', color:C.mist, marginTop:6 }}>The Wild North</div>
-          </div>
-          <div style={{ display:'flex', borderTop:'1px solid rgba(255,255,255,0.09)', borderBottom:'1px solid rgba(255,255,255,0.09)', padding:'14px 0', margin:'22px 0 20px' }}>
-            {[['10','días'],['~950','km'],['3','Highland Games']].map(([n,l],i)=>(
-              <div key={i} style={{ flex:1, display:'flex', flexDirection:'column', paddingLeft:i===0?0:14, borderLeft:i>0?'1px solid rgba(255,255,255,0.09)':'none' }}>
-                <span style={{ fontFamily:'Georgia,serif', fontSize:30, fontWeight:600, color:'#fff', lineHeight:1 }}>{n}</span>
-                <span style={{ fontSize:10, textTransform:'uppercase', letterSpacing:'0.16em', color:C.stone, marginTop:2 }}>{l}</span>
-              </div>
-            ))}
-          </div>
-          <div style={{ display:'flex', flexWrap:'wrap', gap:7, marginBottom:26 }}>
-            {[['✈ EDI · 09:30','rgba(200,144,42,0.14)',C.goldLt],['🏅 Commonwealth Games','rgba(139,26,26,0.14)','#e8a0a0'],['⚔ Highland Games en ruta','rgba(255,255,255,0.04)',C.stone]].map(([txt,bg,col],i)=>(
-              <span key={i} style={{ fontSize:11, padding:'5px 12px', borderRadius:20, background:bg, color:col, border:`1px solid ${col}35` }}>{txt}</span>
-            ))}
-          </div>
-          <button onClick={()=>setTab('itinerario')} style={{ alignSelf:'flex-start', fontSize:12, textTransform:'uppercase', letterSpacing:'0.12em', color:'#fff', background:C.gold, padding:'11px 22px', borderRadius:5, border:'none', cursor:'pointer', fontFamily:'inherit', fontWeight:500 }}
-            onMouseOver={e=>e.currentTarget.style.background=C.goldLt} onMouseOut={e=>e.currentTarget.style.background=C.gold}>
-            Ver el viaje ↓
-          </button>
-        </div>
-        <div className="hero-map-col" style={{ borderLeft:'1px solid rgba(255,255,255,0.07)', display:'flex', flexDirection:'column' }}>
-          <div style={{ flex:1 }}><HeroMap /></div>
-          <div style={{ display:'flex', gap:14, padding:'8px 16px', background:'rgba(13,17,23,0.7)', borderTop:'1px solid rgba(255,255,255,0.07)', fontSize:10, color:C.stone }}>
-            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.mist, display:'inline-block' }}/>Ruta</span>
-            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.gold, display:'inline-block' }}/>Highland Games</span>
-          </div>
-        </div>
-      </div>
-
-      <div className="strip" style={{ background:C.bg1, borderBottom:'1px solid rgba(255,255,255,0.06)', padding:'10px 20px', display:'flex', alignItems:'center', justifyContent:'center', flexWrap:'wrap', fontSize:11, color:C.stone, letterSpacing:'0.06em' }}>
-        {['🚗 Coche en EDI · día 1','🏔 Ben Nevis · Glencoe · Skye','🥃 Speyside Whisky Trail','🚂 Jacobite Steam Train','⚔ Highland Games en ruta'].map((s,i,arr)=>(
-          <span key={i} style={{ display:'flex', alignItems:'center' }}>
-            <span style={{ padding:'0 12px' }}>{s}</span>
-            {i<arr.length-1&&<span style={{ opacity:0.25 }}>·</span>}
-          </span>
-        ))}
-      </div>
 
       {tab==='itinerario' && (
         <div style={{ maxWidth:1140, margin:'0 auto', padding:'32px 20px' }}>
