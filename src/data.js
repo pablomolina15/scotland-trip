@@ -1,12 +1,12 @@
 export const DAYS = [
   {
     day: 1, date: "Dom 26 jul",
-    title: "Llegada — Edimburgo · Recogida del coche",
-    sub: "Aterrizaje 09:30 · Recoge el coche en EDI · Old Town · Grassmarket",
+    title: "Llegada — Edimburgo",
+    sub: "Aterrizaje 09:30 · Old Town · Royal Mile · Grassmarket",
     driving: "0 km", overnight: "Edimburgo",
     accent: "#1e3d2a",
     highlights: [
-      { i: "✈", t: "Aterrizaje EDI 09:30 — al aeropuerto llegan el tram (Airlink, 30 min, 8.50 £) y el bus Airlink 100 (25 min, 5 £). Sin coche estos dos días, moviéndose en transporte público y a pie" },
+      { i: "✈", t: "Aterrizaje EDI 09:30 — al aeropuerto llegan el tram Airlink (30 min, 8.50 £) y el bus Airlink 100 (25 min, 5 £) hasta el centro" },
       { i: "🏰", t: "Castillo de Edimburgo (tarde) — reserva online obligatoria, las colas sin reserva son enormes en verano" },
       { i: "🥃", t: "Royal Mile de arriba abajo: pasa por la Catedral de St. Giles, el parlamento escocés y el Palacio de Holyrood" },
       { i: "🌆", t: "Grassmarket al caer la noche: cerveza local en The Beehive o The White Hart, el pub más antiguo de Edimburgo (1516)" },
@@ -76,16 +76,16 @@ export const DAYS = [
   },
   {
     day: 3, date: "Mar 28 jul",
-    title: "Edimburgo → Stirling · Recoge el coche → Glencoe",
-    sub: "Recogida coche Stirling · Castillo · Trossachs · Primeros Highlands",
-    driving: "~170 km desde Stirling · 2.5h", overnight: "Glencoe / Ballachulish",
+    title: "Edimburgo → Stirling → Loch Lomond → Glencoe",
+    sub: "Recogida coche EDI · Castillo Stirling · Trossachs · Primeros Highlands",
+    driving: "~230 km · 3h", overnight: "Glencoe / Ballachulish",
     accent: "#2a1505",
     carNote: {
       emoji: "🚗",
-      text: "Recoge el coche en Stirling al llegar en tren desde Edimburgo (35 min, ~10 £/p). Enterprise, Arnold Clark y Hertz tienen oficinas en Stirling ciudad. Pide SUV automático — imprescindible para las pistas de los Highlands. Recuerda: en Escocia se conduce por la izquierda.",
+      text: "Recoge el coche esta mañana en el aeropuerto de Edimburgo (EDI) antes de salir — Enterprise, Arnold Clark y Hertz tienen oficina allí. Toma el tram Airlink desde el centro (30 min, 8.50 £) o un taxi (~25 £). Pide SUV automático — imprescindible para las pistas de los Highlands. En Escocia se conduce por la izquierda.",
     },
     highlights: [
-      { i: "🚆", t: "Tren Edimburgo Waverley → Stirling (35 min, ~10 £/p) — recoge el coche al llegar" },
+      { i: "🚗", t: "Recoge el coche en el aeropuerto EDI esta mañana (ver nota)" },
       { i: "🏰", t: "Castillo de Stirling — rival directo del de Edimburgo, menos masificado y más auténtico. Mary Queen of Scots fue coronada aquí" },
       { i: "🏰", t: "Castillo Doune (20 min de Stirling) — usado en Monty Python y Los Caballeros de la Mesa Cuadrada y en Outlander. Visita rápida que merece la pena" },
       { i: "🌿", t: "Trossachs y Loch Katrine — el parque nacional más accesible. Verde intenso, silencio total. País de Rob Roy MacGregor" },

@@ -174,14 +174,13 @@ function DayCard({ d, open, onToggle }) {
         <div className="day-num" style={{ fontFamily:'Georgia,serif', fontSize:42, fontWeight:700, color:'rgba(255,255,255,0.1)', lineHeight:1, flexShrink:0, minWidth:46, userSelect:'none' }}>{String(d.day).padStart(2,'0')}</div>
         <div style={{ flex:1, minWidth:0 }}>
           <div style={{ fontSize:10, textTransform:'uppercase', letterSpacing:'0.22em', color:C.gold, marginBottom:2 }}>{d.date}</div>
-          <div style={{ fontSize:16, fontWeight:500, color:'#fff', lineHeight:1.2, marginBottom:1 }}>{d.title}</div>
-          <div style={{ fontSize:11, color:C.stone, fontStyle:'italic', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{d.sub}</div>
-        </div>
-        <div className="dh-stats" style={{ display:'flex', flexDirection:'column', alignItems:'flex-end', gap:4, flexShrink:0 }}>
-          <Pill>🚗 {d.driving}</Pill>
-          <Pill>🛏 {d.overnight}</Pill>
-          {d.gamesNote && <Pill gold>⚔ Highland Games</Pill>}
-          {d.carNote && <Pill blue>🚗 Info coche</Pill>}
+          <div style={{ fontSize:16, fontWeight:500, color:'#fff', lineHeight:1.2, marginBottom:4 }}>{d.title}</div>
+          <div style={{ display:'flex', flexWrap:'wrap', gap:5, alignItems:'center' }}>
+            <span style={{ fontSize:10, color:C.stone, background:'rgba(255,255,255,0.05)', padding:'2px 8px', borderRadius:10, border:'1px solid rgba(255,255,255,0.08)', whiteSpace:'nowrap' }}>🚗 {d.driving}</span>
+            <span style={{ fontSize:10, color:C.stone, background:'rgba(255,255,255,0.05)', padding:'2px 8px', borderRadius:10, border:'1px solid rgba(255,255,255,0.08)', whiteSpace:'nowrap' }}>🛏 {d.overnight}</span>
+            {d.gamesNote && <span style={{ fontSize:10, color:C.goldLt, background:'rgba(200,144,42,0.1)', padding:'2px 8px', borderRadius:10, border:'1px solid rgba(200,144,42,0.3)', whiteSpace:'nowrap' }}>⚔ Highland Games</span>}
+            {d.carNote && <span style={{ fontSize:10, color:C.mist, background:'rgba(127,168,184,0.1)', padding:'2px 8px', borderRadius:10, border:'1px solid rgba(127,168,184,0.3)', whiteSpace:'nowrap' }}>🚗 Info coche</span>}
+          </div>
         </div>
         <span style={{ fontSize:18, color:C.stone, transform:open?'rotate(90deg)':'none', transition:'transform 0.22s', marginLeft:4, flexShrink:0 }}>›</span>
       </div>
@@ -435,10 +434,11 @@ export default function App() {
               </div>
             ))}
           </div>
-          <button onClick={()=>setTab('itinerario')} style={{ alignSelf:'flex-start', fontSize:12, textTransform:'uppercase', letterSpacing:'0.12em', color:'#fff', background:C.gold, padding:'11px 22px', borderRadius:5, border:'none', cursor:'pointer', fontFamily:'inherit', fontWeight:500, transition:'background 0.2s' }}
-            onMouseOver={e=>e.currentTarget.style.background=C.goldLt} onMouseOut={e=>e.currentTarget.style.background=C.gold}>
-            Ver el viaje ↓
-          </button>
+          <div style={{ display:'flex', flexWrap:'wrap', gap:7 }}>
+            {[['10 días','rgba(255,255,255,0.06)',C.stone],['~950 km','rgba(255,255,255,0.06)',C.stone],['3 Highland Games','rgba(255,255,255,0.06)',C.stone]].map(([txt,bg,col],i)=>(
+              <span key={i} style={{ fontSize:12, padding:'6px 14px', borderRadius:20, background:bg, color:col, border:`1px solid rgba(255,255,255,0.1)` }}>{txt}</span>
+            ))}
+          </div>
         </div>
         <div className="hero-map-wrap" style={{ borderLeft:'1px solid rgba(255,255,255,0.07)', display:'flex', flexDirection:'column' }}>
           <div style={{ flex:1 }}><HeroMap /></div>
