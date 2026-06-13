@@ -329,15 +329,15 @@ function ExpensesPanel() {
 
       <div style={{ display:'flex', flexDirection:'column', gap:5, marginBottom:14 }}>
         {expenses.map(e=>(
-          <div key={e.id} style={{ display:'flex', alignItems:'center', gap:10, padding:'10px 14px', borderRadius:9, background:C.bg2, border:C.border }}>
-            <div style={{ fontSize:11, color:C.stone, minWidth:88, flexShrink:0 }}>{e.category}</div>
-            <div style={{ flex:1, fontSize:13, color:'#dce8f0' }}>{e.concept}</div>
-            <div style={{ fontSize:11, color:C.stone, minWidth:58, textAlign:'right' }}>{e.date}</div>
-            <div style={{ textAlign:'right', minWidth:88 }}>
-              <div style={{ fontSize:14, color:C.goldLt, fontWeight:500 }}>{e.total.toFixed(2)} €</div>
+          <div key={e.id} className="exp-row" style={{ display:'flex', alignItems:'center', gap:8, padding:'10px 12px', borderRadius:9, background:C.bg2, border:C.border }}>
+            <div style={{ fontSize:10, color:C.stone, flexShrink:0, minWidth:0 }}>{e.category}</div>
+            <div style={{ flex:1, fontSize:13, color:'#dce8f0', minWidth:0, overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{e.concept}</div>
+            <div className="exp-date" style={{ fontSize:11, color:C.stone, flexShrink:0 }}>{e.date}</div>
+            <div style={{ textAlign:'right', flexShrink:0 }}>
+              <div style={{ fontSize:13, color:C.goldLt, fontWeight:500 }}>{e.total.toFixed(2)} €</div>
               <div style={{ fontSize:10, color:C.stone }}>{e.perPerson.toFixed(2)} €/p</div>
             </div>
-            <button onClick={()=>remove(e.id)} style={{ background:'none', border:'none', cursor:'pointer', color:'rgba(255,255,255,0.2)', fontSize:18, padding:'0 2px', flexShrink:0, lineHeight:1, transition:'color 0.18s' }}
+            <button onClick={()=>remove(e.id)} style={{ background:'none', border:'none', cursor:'pointer', color:'rgba(255,255,255,0.2)', fontSize:20, padding:'0 2px', flexShrink:0, lineHeight:1, transition:'color 0.18s' }}
               onMouseOver={ev=>ev.currentTarget.style.color=C.red} onMouseOut={ev=>ev.currentTarget.style.color='rgba(255,255,255,0.2)'}>×</button>
           </div>
         ))}
@@ -345,21 +345,21 @@ function ExpensesPanel() {
 
       {showForm ? (
         <div style={{ padding:'14px', borderRadius:10, background:C.bg2, border:C.border, display:'flex', flexDirection:'column', gap:9 }}>
-          <div className="expenses-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:9 }}>
-            <input value={form.concept} onChange={e=>setForm(f=>({...f,concept:e.target.value}))} placeholder="Concepto (ej: Hotel Glencoe 2 noches)"
-              style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'8px 11px', color:'#fff', fontSize:13, fontFamily:'inherit' }}/>
+          <div className="exp-form-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', gap:9 }}>
+            <input value={form.concept} onChange={e=>setForm(f=>({...f,concept:e.target.value}))} placeholder="Concepto"
+              style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'10px 11px', color:'#fff', fontSize:14, fontFamily:'inherit', width:'100%' }}/>
             <input value={form.total} onChange={e=>setForm(f=>({...f,total:e.target.value}))} type="number" placeholder="Total €"
-              style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'8px 11px', color:'#fff', fontSize:13, fontFamily:'inherit' }}/>
+              style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'10px 11px', color:'#fff', fontSize:14, fontFamily:'inherit', width:'100%' }}/>
             <select value={form.category} onChange={e=>setForm(f=>({...f,category:e.target.value}))}
-              style={{ background:'#1a2530', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'8px 11px', color:'#fff', fontSize:13, fontFamily:'inherit' }}>
+              style={{ background:'#1a2530', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'10px 11px', color:'#fff', fontSize:14, fontFamily:'inherit', width:'100%' }}>
               {CATEGORIES.map(c=><option key={c} value={c}>{c}</option>)}
             </select>
-            <input value={form.date} onChange={e=>setForm(f=>({...f,date:e.target.value}))} placeholder="Fecha (ej: Pre-viaje, 26 jul…)"
-              style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'8px 11px', color:'#fff', fontSize:13, fontFamily:'inherit' }}/>
+            <input value={form.date} onChange={e=>setForm(f=>({...f,date:e.target.value}))} placeholder="Fecha (ej: 26 jul)"
+              style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:6, padding:'10px 11px', color:'#fff', fontSize:14, fontFamily:'inherit', width:'100%' }}/>
           </div>
           <div style={{ display:'flex', gap:8 }}>
-            <button onClick={add} style={{ padding:'8px 18px', background:C.gold, border:'none', borderRadius:5, color:'#fff', fontSize:12, cursor:'pointer', fontFamily:'inherit', fontWeight:500 }}>Añadir</button>
-            <button onClick={()=>setShowForm(false)} style={{ padding:'8px 14px', background:'rgba(255,255,255,0.06)', border:C.border, borderRadius:5, color:C.stone, fontSize:12, cursor:'pointer', fontFamily:'inherit' }}>Cancelar</button>
+            <button onClick={add} style={{ flex:1, padding:'11px 18px', background:C.gold, border:'none', borderRadius:5, color:'#fff', fontSize:14, cursor:'pointer', fontFamily:'inherit', fontWeight:500 }}>Añadir</button>
+            <button onClick={()=>setShowForm(false)} style={{ flex:1, padding:'11px 14px', background:'rgba(255,255,255,0.06)', border:C.border, borderRadius:5, color:C.stone, fontSize:14, cursor:'pointer', fontFamily:'inherit' }}>Cancelar</button>
           </div>
         </div>
       ) : (
@@ -391,17 +391,25 @@ export default function App() {
         input::placeholder{color:rgba(255,255,255,0.25)}
         input:focus,select:focus{outline:1px solid rgba(200,144,42,0.5)}
         @media(max-width:768px){
+          .hero-grid{grid-template-columns:1fr!important;min-height:auto!important}
+          .hero-map-wrap{height:260px;border-left:none!important;border-top:1px solid rgba(255,255,255,0.07)}
+          .hero-text{padding:64px 20px 28px!important}
+          .hero-stats{gap:0}
+          .strip{display:none!important}
           .day-body-grid{grid-template-columns:1fr!important}
           .day-col-2{border-right:none!important;border-top:1px solid rgba(255,255,255,0.07)!important}
           .day-map-col{border-left:none!important;border-top:1px solid rgba(255,255,255,0.07)!important}
           .day-header{padding:12px 14px!important;gap:10px!important}
           .day-num{font-size:30px!important;min-width:34px!important}
           .dh-stats{display:none!important}
-          .expenses-grid{grid-template-columns:1fr!important}
           .cat-totals{display:none!important}
+          .exp-form-grid{display:flex!important;flex-direction:column!important}
+          .exp-row{flex-direction:column!important;gap:6px!important}
+          .exp-date{display:none!important}
         }
       `}</style>
 
+      {/* NAV */}
       <nav style={{ position:'sticky', top:0, zIndex:100, height:50, display:'flex', alignItems:'center', justifyContent:'space-between', padding:'0 20px', background:'rgba(13,17,23,0.92)', backdropFilter:'blur(12px)', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
         <span style={{ fontFamily:'Georgia,serif', fontSize:14, letterSpacing:'0.04em' }}>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia 2026 · Bea y Pablo</span>
         <div style={{ display:'flex', gap:2 }}>
@@ -411,6 +419,45 @@ export default function App() {
         </div>
       </nav>
 
+      {/* HERO */}
+      <div className="hero-grid" style={{ display:'grid', gridTemplateColumns:'1fr 1fr', minHeight:'calc(100vh - 50px)', borderBottom:'1px solid rgba(255,255,255,0.07)' }}>
+        <div className="hero-text" style={{ display:'flex', flexDirection:'column', justifyContent:'center', padding:'60px 48px 60px 44px', background:'linear-gradient(140deg,#0d2018 0%,#0d1117 100%)' }}>
+          <div style={{ fontSize:10, textTransform:'uppercase', letterSpacing:'0.28em', color:C.gold, marginBottom:16 }}>26 julio — 5 agosto 2026</div>
+          <div style={{ fontFamily:'Georgia,serif', lineHeight:0.9, marginBottom:10 }}>
+            <div style={{ fontSize:'clamp(44px,5vw,76px)', fontWeight:600, color:'#fff' }}>Escocia</div>
+            <div style={{ fontSize:'clamp(24px,2.6vw,40px)', fontWeight:300, fontStyle:'italic', color:C.mist, marginTop:8 }}>The Wild North</div>
+          </div>
+          <div className="hero-stats" style={{ display:'flex', borderTop:'1px solid rgba(255,255,255,0.09)', borderBottom:'1px solid rgba(255,255,255,0.09)', padding:'14px 0', margin:'22px 0 20px' }}>
+            {[['10','días'],['~950','km'],['3','Highland Games']].map(([n,l],i)=>(
+              <div key={i} style={{ flex:1, display:'flex', flexDirection:'column', paddingLeft:i===0?0:14, borderLeft:i>0?'1px solid rgba(255,255,255,0.09)':'none' }}>
+                <span style={{ fontFamily:'Georgia,serif', fontSize:30, fontWeight:600, color:'#fff', lineHeight:1 }}>{n}</span>
+                <span style={{ fontSize:10, textTransform:'uppercase', letterSpacing:'0.16em', color:C.stone, marginTop:2 }}>{l}</span>
+              </div>
+            ))}
+          </div>
+          <button onClick={()=>setTab('itinerario')} style={{ alignSelf:'flex-start', fontSize:12, textTransform:'uppercase', letterSpacing:'0.12em', color:'#fff', background:C.gold, padding:'11px 22px', borderRadius:5, border:'none', cursor:'pointer', fontFamily:'inherit', fontWeight:500, transition:'background 0.2s' }}
+            onMouseOver={e=>e.currentTarget.style.background=C.goldLt} onMouseOut={e=>e.currentTarget.style.background=C.gold}>
+            Ver el viaje ↓
+          </button>
+        </div>
+        <div className="hero-map-wrap" style={{ borderLeft:'1px solid rgba(255,255,255,0.07)', display:'flex', flexDirection:'column' }}>
+          <div style={{ flex:1 }}><HeroMap /></div>
+          <div style={{ display:'flex', gap:14, padding:'8px 16px', background:'rgba(13,17,23,0.7)', borderTop:'1px solid rgba(255,255,255,0.07)', fontSize:10, color:C.stone }}>
+            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.mist, display:'inline-block' }}/>Ruta</span>
+            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.gold, display:'inline-block' }}/>Highland Games</span>
+          </div>
+        </div>
+      </div>
+
+      {/* STRIP */}
+      <div className="strip" style={{ background:C.bg1, borderBottom:'1px solid rgba(255,255,255,0.06)', padding:'10px 20px', display:'flex', alignItems:'center', justifyContent:'center', flexWrap:'wrap', fontSize:11, color:C.stone, letterSpacing:'0.06em' }}>
+        {['🚗 Coche en Stirling · día 3','🏔 Ben Nevis · Glencoe · Skye','🥃 Speyside Whisky Trail','🚂 Jacobite Steam Train','⚔ Highland Games en ruta'].map((s,i,arr)=>(
+          <span key={i} style={{ display:'flex', alignItems:'center' }}>
+            <span style={{ padding:'0 12px' }}>{s}</span>
+            {i<arr.length-1&&<span style={{ opacity:0.25 }}>·</span>}
+          </span>
+        ))}
+      </div>
 
       {tab==='itinerario' && (
         <div style={{ maxWidth:1140, margin:'0 auto', padding:'32px 20px' }}>
