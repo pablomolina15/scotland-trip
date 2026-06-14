@@ -347,39 +347,69 @@ export const DAYS = [
   },
   {
     day: 10, date: "Mar 4 ago",
-    title: "Stirling → Edimburgo · Vuelo 19:00",
-    sub: "Bridge of Allan Games · Calton Hill · Devolución coche · ✈",
-    driving: "~55 km · M9", overnight: "Vuelo de regreso",
+    title: "Stirling · Día tranquilo",
+    sub: "Bridge of Allan Games · Loch Katrine · Wallace Monument · Última noche",
+    driving: "~40 km local", overnight: "Stirling",
     accent: "#180f05",
     gamesNote: {
       emoji: "⚔",
-      text: "Bridge of Allan Highland Games — esta mañana, a 15 min de Stirling. Tiempo de sobra para ver caber y gaitas antes de ponerse en ruta hacia Edimburgo con el vuelo a las 19:00.",
+      text: "Bridge of Allan Highland Games — esta mañana, a 15 min de Stirling. El más local y auténtico de los tres que os cruzáis en el viaje.",
       url: null, urlLabel: null,
     },
-    carNote: {
-      emoji: "🚗",
-      text: "Devuelve el coche en el aeropuerto de Edimburgo (EDI) antes de embarcar. Llega con al menos 2–3 horas de antelación. Reposta justo antes del aeropuerto — repostar en la gasolinera de la empresa sale el doble de caro.",
-    },
     highlights: [
-      { i: "⚔", t: "Bridge of Allan Highland Games (mañana, ~10–15 £ en puerta) — tu último Highland Games del viaje" },
-      { i: "🌅", t: "Calton Hill en Edimburgo — la subida más fácil (15 min) con las mejores vistas de la ciudad. Perfecto para la última foto" },
-      { i: "🛍", t: "Victoria Street — la calle curva e inspiración del Callejón Diagon. Tiendas de whisky, tartán y recuerdos de calidad" },
-      { i: "✈", t: "Devolución coche en EDI (ver nota) · mínimo 2–3h antes · Vuelo 19:00 h" },
+      { i: "⚔", t: "Bridge of Allan Highland Games por la mañana (~10–15 £ en puerta) — caber, gaitas y danza highland" },
+      { i: "🗽", t: "Monumento a William Wallace — sube los 246 escalones para vistas de 360° sobre los Highlands y el Forth" },
+      { i: "🌿", t: "Loch Katrine en los Trossachs (~45 min de Stirling) — crucero en el SS Sir Walter Scott o paseo junto al lago" },
+      { i: "🍽", t: "Última cena tranquila en Stirling — mañana madruga para llegar al aeropuerto con margen" },
     ],
     tickets: [
       { n: "Bridge of Allan Highland Games", p: "~10 £/p en puerta", must: false, url: null },
+      { n: "Crucero Loch Katrine (SS Sir Walter Scott)", p: "~15 £/p", must: false, url: "https://www.lochkatrine.com" },
+    ],
+    hotels: [
+      { n: "Stirling Highland Hotel (2ª noche)", s: 4, p: "160–210 €", note: "Quédate una segunda noche — así el día del vuelo salís tranquilos.", top: true, url: "https://www.stirlinghighlandhotel.co.uk" },
+      { n: "Victoria Square Guest House", s: 4, p: "130–170 €", note: "B&B boutique en casa señorial victoriana. Muy bien valorado.", url: "https://www.victoriasquare.co.uk" },
+    ],
+    rests: [
+      { n: "Portcullis Restaurant", ty: "Escocés · medieval", p: "€€", gm: 4.3, note: "Justo al lado del castillo. Última cena con ambiente escocés auténtico." },
+      { n: "Artichoke Restaurant", ty: "Moderno escocés", p: "€€", gm: 4.5, note: "El favorito de los locales. Buen sitio para la penúltima noche." },
+    ],
+    mapCenter: [56.13, -3.97], mapZoom: 11,
+    pts: [
+      { n: "Bridge of Allan Games", lat: 56.1557, lng: -3.944 },
+      { n: "Wallace Monument", lat: 56.1427, lng: -3.9183 },
+      { n: "Loch Katrine, Trossachs", lat: 56.2535, lng: -4.544 },
+      { n: "Stirling centro", lat: 56.1165, lng: -3.9369 },
+    ],
+  },
+  {
+    day: 11, date: "Mié 5 ago",
+    title: "Stirling → Edimburgo · Vuelo 19:00",
+    sub: "Última mañana · Calton Hill · Devolución coche · ✈",
+    driving: "~55 km · M9 · 45 min", overnight: "Vuelo de regreso",
+    accent: "#0a0f08",
+    carNote: {
+      emoji: "🚗",
+      text: "Devuelve el coche en el aeropuerto de Edimburgo (EDI). Llega con al menos 2–3 horas de antelación al vuelo de las 19:00. Reposta justo antes del aeropuerto — repostar en la gasolinera de la empresa sale el doble de caro.",
+    },
+    highlights: [
+      { i: "🌅", t: "Calton Hill en Edimburgo (15 min de subida) — la última vista panorámica de la ciudad. La foto de despedida" },
+      { i: "🛍", t: "Victoria Street — la calle curva inspiración del Callejón Diagon. Whisky, tartán y recuerdos de calidad" },
+      { i: "🥃", t: "Cadenhead's Whisky Shop en el Royal Mile — la tienda independiente más antigua de Escocia (1842). Para la botella especial del viaje" },
+      { i: "🚗", t: "Devolución coche en EDI (ver nota) · mínimo 2–3h antes · Vuelo 19:00 h" },
+    ],
+    tickets: [
       { n: "Calton Hill", p: "Gratis", must: false, url: null },
     ],
     hotels: [],
     rests: [
-      { n: "The Pantry, Stockbridge", ty: "Brunch escocés", p: "€€", gm: 4.6, note: "El mejor brunch de Edimburgo para una última mañana perfecta." },
-      { n: "Café St Honoré", ty: "Bistró francés-escocés", p: "€€", gm: 4.5, note: "Elegante y acogedor para comer antes del vuelo." },
+      { n: "The Pantry, Stockbridge", ty: "Brunch escocés", p: "€€", gm: 4.6, note: "El mejor brunch de Edimburgo. Para una última mañana perfecta." },
+      { n: "Café St Honoré", ty: "Bistró francés-escocés", p: "€€", gm: 4.5, note: "Elegante y acogedor para comer tranquilos antes del aeropuerto." },
     ],
-    mapCenter: [55.96, -3.22], mapZoom: 11,
+    mapCenter: [55.96, -3.22], mapZoom: 12,
     pts: [
-      { n: "Bridge of Allan Games", lat: 56.1557, lng: -3.944 },
       { n: "Calton Hill, Edimburgo", lat: 55.9553, lng: -3.1826 },
-      { n: "Victoria Street", lat: 55.9481, lng: -3.193 },
+      { n: "Victoria Street / Royal Mile", lat: 55.9481, lng: -3.193 },
       { n: "Aeropuerto EDI (devuelve coche)", lat: 55.9508, lng: -3.3615 },
     ],
   },
@@ -397,4 +427,5 @@ export const ROUTE = [
 export const INITIAL_EXPENSES = [
   { id: 1, concept: "Vuelos (2 personas)", total: 412.08, perPerson: 206.04, category: "✈ Transporte", date: "Pre-viaje" },
   { id: 2, concept: "ETA (entrada UK, 2 personas)", total: 48.00, perPerson: 24.00, category: "📋 Documentación", date: "Pre-viaje" },
+  { id: 3, concept: "Explorer Pass (2 personas)", total: 112.18, perPerson: 56.09, category: "🎫 Entradas", date: "Pre-viaje" },
 ];
