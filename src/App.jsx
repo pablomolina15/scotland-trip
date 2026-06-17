@@ -451,7 +451,7 @@ export default function App() {
 
       {/* STRIP */}
       <div className="strip" style={{ background:C.bg1, borderBottom:'1px solid rgba(255,255,255,0.06)', padding:'10px 20px', display:'flex', alignItems:'center', justifyContent:'center', flexWrap:'wrap', fontSize:11, color:C.stone, letterSpacing:'0.06em' }}>
-        {['🚗 Coche en Stirling · día 3','🏔 Ben Nevis · Glencoe · Skye','🥃 Speyside Whisky Trail','🚂 Jacobite Steam Train','⚔ Highland Games en ruta'].map((s,i,arr)=>(
+        {['🚗 Coche en EDI · día 2','🏔 Glencoe · Ben Nevis · Skye','🦕 Loch Ness · Clava Cairns','🏰 Dunnottar Castle · St Andrews','⛪ Rosslyn Chapel · Borders'].map((s,i,arr)=>(
           <span key={i} style={{ display:'flex', alignItems:'center' }}>
             <span style={{ padding:'0 12px' }}>{s}</span>
             {i<arr.length-1&&<span style={{ opacity:0.25 }}>·</span>}
