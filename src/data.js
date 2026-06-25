@@ -18,9 +18,7 @@ export const DAYS = [
       { n: "Palacio de Holyroodhouse", p: "~17 £/p", must: false, url: "https://www.rct.uk/visit/palace-of-holyroodhouse" },
     ],
     hotels: [
-      { n: "Hotel Indigo Edinburgh – Royal Mile", s: 4, p: "170–220 €", note: "Diseño contemporáneo, ubicación perfecta en el Royal Mile.", top: true, url: "https://www.ihg.com" },
-      { n: "Motel One Edinburgh-Royal", s: 3, p: "120–160 €", note: "Moderno, céntrico y muy bien valorado. Reserva con antelación.", url: "https://www.motel-one.com" },
-      { n: "ibis Edinburgh Centre South Bridge", s: 3, p: "100–140 €", note: "La opción más económica bien situada, junto al Royal Mile.", url: "https://www.accor.com" },
+      { n: "4 Friends House", s: 3, p: "139.15 € (reservado)", note: "Ya reservado. Alojamiento acogedor en el centro de Edimburgo.", top: true, url: null },
     ],
     rests: [
       { n: "Timberyard", ty: "Escocés moderno · km0", p: "€€€", gm: 4.5, note: "Uno de los mejores de la ciudad. Producto local de temporada." },
@@ -226,7 +224,14 @@ export const DAYS = [
     sub: "Lago Ness · Última batalla en suelo británico · Círculo megalítico 4000 a.C.",
     driving: "~2h 45 min", overnight: "Inverness / cerca de Aberdeen",
     accent: "#0a1828",
+    gamesNote: {
+      emoji: "⚔",
+      text: "Newtonmore Highland Games — hoy (1 ago), a 45 min de Inverness por la A9. Lanzamiento de caber, gaitas y danza highland. Podéis parar un par de horas de camino al Loch Ness.",
+      url: "https://newtonmorehighlandgames.co.uk",
+      urlLabel: "Ver más ↗",
+    },
     highlights: [
+      { i: "⚔", t: "Newtonmore Highland Games (de camino, A9) — ver nota. El evento de Highland Games más auténtico de la zona" },
       { i: "🦕", t: "Castillo de Urquhart — ruinas del s.XIV a orillas del Loch Ness. Las almenas ofrecen las mejores vistas del lago. Busca a Nessie desde allí" },
       { i: "🚤", t: "Crucero Loch Ness (Jacobite Cruises, ~1h) — la mejor forma de entender la escala del lago: 37 km de largo, 230m de profundidad" },
       { i: "⚔", t: "Culloden Battlefield — la última batalla en suelo británico (1746). 1.300 muertos en menos de una hora. El centro de interpretación es sobrecogedor. Lleva pañuelos" },
@@ -411,5 +416,7 @@ export const ROUTE = [
 export const INITIAL_EXPENSES = [
   { id: 1, concept: "Vuelos (2 personas)", total: 412.08, perPerson: 206.04, category: "✈ Transporte", date: "Pre-viaje" },
   { id: 2, concept: "ETA (entrada UK, 2 personas)", total: 48.00, perPerson: 24.00, category: "📋 Documentación", date: "Pre-viaje" },
-  { id: 3, concept: "Explorer Pass (2 personas)", total: 112.18, perPerson: 56.09, category: "🎫 Entradas", date: "Pre-viaje" },
+  { id: 3, concept: "Explorer Pass (2 personas)", total: 112.81, perPerson: 56.405, category: "🎫 Entradas", date: "Pre-viaje" },
+  { id: 4, concept: "Hotel 1ª noche — 4 Friends House, Edimburgo", total: 139.15, perPerson: 69.575, category: "🏨 Alojamiento", date: "26 jul" },
+  { id: 5, concept: "Coche de alquiler (incl. seguro 93 €)", total: 326.55, perPerson: 163.275, category: "🚗 Coche alquiler", date: "27 jul – 4 ago" },
 ];

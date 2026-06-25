@@ -36,7 +36,7 @@ const C = {
 //       const icon = window.L.divIcon({ html:`<div style="width:10px;height:10px;border-radius:50%;background:${C.mist};border:2px solid rgba(255,255,255,0.45)"></div>`, className:'', iconSize:[10,10], iconAnchor:[5,5] })
 //       window.L.marker(ll,{icon}).bindPopup(`<b style="color:${C.goldLt}">${name}</b>`,{closeButton:false}).addTo(map)
 //     })
-//     [[55.8783,-4.3589,'Commonwealth Games · Glasgow'],[57.059,-4.1381,'Newtonmore Highland Games'],[56.1557,-3.944,'Bridge of Allan Highland Games']].forEach(([lat,lng,label]) => {
+//     [[57.059,-4.1381,'Newtonmore Highland Games (1 ago)']].forEach(([lat,lng,label]) => {
 //       const icon = window.L.divIcon({ html:`<div style="width:26px;height:26px;border-radius:50%;background:rgba(200,144,42,0.2);border:2px solid ${C.gold};display:flex;align-items:center;justify-content:center;font-size:12px;animation:pulse-gold 2s infinite">⚔</div>`, className:'', iconSize:[26,26], iconAnchor:[13,13] })
 //       window.L.marker([lat,lng],{icon}).bindPopup(`<b style="color:${C.goldLt}">${label}</b>`,{closeButton:false}).addTo(map)
 //     })
@@ -79,7 +79,7 @@ function HeroMap() {
       L.marker(ll,{icon}).bindPopup(`<b style="color:${C.goldLt}">${name}</b>`,{closeButton:false}).addTo(map);
     });
     
-    [[55.8783,-4.3589,'Commonwealth Games · Glasgow'],[57.059,-4.1381,'Newtonmore Highland Games'],[56.1557,-3.944,'Bridge of Allan Highland Games']].forEach(([lat,lng,label]) => {
+    [[57.059,-4.1381,'Newtonmore Highland Games (1 ago)']].forEach(([lat,lng,label]) => {
       const icon = L.divIcon({ html:`<div style="width:26px;height:26px;border-radius:50%;background:rgba(200,144,42,0.2);border:2px solid ${C.gold};display:flex;align-items:center;justify-content:center;font-size:12px;animation:pulse-gold 2s infinite">⚔</div>`, className:'', iconSize:[26,26], iconAnchor:[13,13] });
       L.marker([lat,lng],{icon}).bindPopup(`<b style="color:${C.goldLt}">${label}</b>`,{closeButton:false}).addTo(map);
     });
