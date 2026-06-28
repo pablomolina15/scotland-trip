@@ -276,13 +276,13 @@ const CATEGORIES = ['✈ Transporte','🏨 Alojamiento','🍽 Comida','🎫 Entr
 
 function ExpensesPanel() {
   const [expenses, setExpenses] = useState(() => {
-    try { const s = localStorage.getItem('scotland26_exp'); return s ? JSON.parse(s) : INITIAL_EXPENSES } catch { return INITIAL_EXPENSES }
+    try { const s = localStorage.getItem('scotland26_exp_v2'); return s ? JSON.parse(s) : INITIAL_EXPENSES } catch { return INITIAL_EXPENSES }
   })
   const [form, setForm] = useState({ concept:'', total:'', category:CATEGORIES[0], date:'' })
   const [showForm, setShowForm] = useState(false)
 
   useEffect(() => {
-    try { localStorage.setItem('scotland26_exp', JSON.stringify(expenses)) } catch {}
+    try { localStorage.setItem('scotland26_exp_v2', JSON.stringify(expenses)) } catch {}
   }, [expenses])
 
   const add = () => {
@@ -427,38 +427,23 @@ export default function App() {
             <div style={{ fontSize:'clamp(24px,2.6vw,40px)', fontWeight:300, fontStyle:'italic', color:C.mist, marginTop:8 }}>The Wild North</div>
           </div>
           <div className="hero-stats" style={{ display:'flex', borderTop:'1px solid rgba(255,255,255,0.09)', borderBottom:'1px solid rgba(255,255,255,0.09)', padding:'14px 0', margin:'22px 0 20px' }}>
-            {[['10','días'],['~950','km'],['3','Highland Games']].map(([n,l],i)=>(
+            {[['11','etapas'],['~1.200','km'],['11','ciudades']].map(([n,l],i)=>(
               <div key={i} style={{ flex:1, display:'flex', flexDirection:'column', paddingLeft:i===0?0:14, borderLeft:i>0?'1px solid rgba(255,255,255,0.09)':'none' }}>
                 <span style={{ fontFamily:'Georgia,serif', fontSize:30, fontWeight:600, color:'#fff', lineHeight:1 }}>{n}</span>
                 <span style={{ fontSize:10, textTransform:'uppercase', letterSpacing:'0.16em', color:C.stone, marginTop:2 }}>{l}</span>
               </div>
             ))}
           </div>
-          <div style={{ display:'flex', flexWrap:'wrap', gap:7 }}>
-            {[['10 días','rgba(255,255,255,0.06)',C.stone],['~950 km','rgba(255,255,255,0.06)',C.stone],['3 Highland Games','rgba(255,255,255,0.06)',C.stone]].map(([txt,bg,col],i)=>(
-              <span key={i} style={{ fontSize:12, padding:'6px 14px', borderRadius:20, background:bg, color:col, border:`1px solid rgba(255,255,255,0.1)` }}>{txt}</span>
-            ))}
-          </div>
+
         </div>
         <div className="hero-map-wrap" style={{ borderLeft:'1px solid rgba(255,255,255,0.07)', display:'flex', flexDirection:'column' }}>
           <div style={{ flex:1 }}><HeroMap /></div>
           <div style={{ display:'flex', gap:14, padding:'8px 16px', background:'rgba(13,17,23,0.7)', borderTop:'1px solid rgba(255,255,255,0.07)', fontSize:10, color:C.stone }}>
-            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.mist, display:'inline-block' }}/>Ruta</span>
-            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.gold, display:'inline-block' }}/>Highland Games</span>
+            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.mist, display:'inline-block' }}/>Ruta del viaje</span>
+            <span style={{ display:'flex', alignItems:'center', gap:5 }}><span style={{ width:8, height:8, borderRadius:'50%', background:C.gold, display:'inline-block' }}/>⚔ Newtonmore Games (1 ago)</span>
           </div>
         </div>
       </div>
-
-      {/* STRIP */}
-      <div className="strip" style={{ background:C.bg1, borderBottom:'1px solid rgba(255,255,255,0.06)', padding:'10px 20px', display:'flex', alignItems:'center', justifyContent:'center', flexWrap:'wrap', fontSize:11, color:C.stone, letterSpacing:'0.06em' }}>
-        {['🚗 Coche en EDI · día 2','🏔 Glencoe · Ben Nevis · Skye','🦕 Loch Ness · Clava Cairns','🏰 Dunnottar Castle · St Andrews','⛪ Rosslyn Chapel · Borders'].map((s,i,arr)=>(
-          <span key={i} style={{ display:'flex', alignItems:'center' }}>
-            <span style={{ padding:'0 12px' }}>{s}</span>
-            {i<arr.length-1&&<span style={{ opacity:0.25 }}>·</span>}
-          </span>
-        ))}
-      </div>
-
       {tab==='itinerario' && (
         <div style={{ maxWidth:1140, margin:'0 auto', padding:'32px 20px' }}>
           <div style={{ marginBottom:24 }}>
