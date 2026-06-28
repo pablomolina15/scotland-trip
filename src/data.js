@@ -222,7 +222,7 @@ export const DAYS = [
     day: 7, date: "Sáb 1 ago",
     title: "Castillo de Urquhart · Loch Ness · Culloden · Clava Cairns",
     sub: "Lago Ness · Última batalla en suelo británico · Círculo megalítico 4000 a.C.",
-    driving: "~2h 45 min", overnight: "Inverness / cerca de Aberdeen",
+    driving: "~2h 45 min", overnight: "Inverness o alrededores",
     accent: "#0a1828",
     gamesNote: {
       emoji: "⚔",
@@ -265,7 +265,7 @@ export const DAYS = [
     day: 8, date: "Dom 2 ago",
     title: "Aberdeen · Dunnottar Castle · Costa Aberdeenshire",
     sub: "Castillo sobre el acantilado · Stonehaven · Costa del Mar del Norte",
-    driving: "~2h 30 min", overnight: "Cerca de Aberdeen",
+    driving: "~2h 30 min", overnight: "Aberdeen o alrededores",
     accent: "#1a1030",
     highlights: [
       { i: "🏰", t: "Dunnottar Castle — fortaleza medieval en un promontorio rocoso de 50m sobre el Mar del Norte, a 20 min al sur de Aberdeen. Uno de los castillos más dramáticos del mundo. Aquí se custodiaron las joyas de la corona escocesa de Cromwell" },
