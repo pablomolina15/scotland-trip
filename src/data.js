@@ -222,7 +222,7 @@ export const DAYS = [
     day: 7, date: "Sáb 1 ago",
     title: "Castillo de Urquhart · Loch Ness · Culloden · Clava Cairns",
     sub: "Lago Ness · Última batalla en suelo británico · Círculo megalítico 4000 a.C.",
-    driving: "~2h 45 min", overnight: "Inverness o alrededores",
+    driving: "~2h 45 min", overnight: "Inverness / cerca de Aberdeen",
     accent: "#0a1828",
     gamesNote: {
       emoji: "⚔",
@@ -265,7 +265,7 @@ export const DAYS = [
     day: 8, date: "Dom 2 ago",
     title: "Aberdeen · Dunnottar Castle · Costa Aberdeenshire",
     sub: "Castillo sobre el acantilado · Stonehaven · Costa del Mar del Norte",
-    driving: "~2h 30 min", overnight: "Aberdeen o alrededores",
+    driving: "~2h 30 min", overnight: "Cerca de Aberdeen",
     accent: "#1a1030",
     highlights: [
       { i: "🏰", t: "Dunnottar Castle — fortaleza medieval en un promontorio rocoso de 50m sobre el Mar del Norte, a 20 min al sur de Aberdeen. Uno de los castillos más dramáticos del mundo. Aquí se custodiaron las joyas de la corona escocesa de Cromwell" },
@@ -419,4 +419,7 @@ export const INITIAL_EXPENSES = [
   { id: 3, concept: "Explorer Pass (2 personas)", total: 112.81, perPerson: 56.405, category: "🎫 Entradas", date: "Pre-viaje" },
   { id: 4, concept: "Hotel 1ª noche — 4 Friends House, Edimburgo", total: 139.15, perPerson: 69.575, category: "🏨 Alojamiento", date: "26 jul" },
   { id: 5, concept: "Coche de alquiler (incl. seguro 93 €)", total: 326.55, perPerson: 163.275, category: "🚗 Coche alquiler", date: "27 jul – 4 ago" },
+  { id: 6, concept: "Hotel Stirling", total: 171.95, perPerson: 85.975, category: "🏨 Alojamiento", date: "27 jul" },
+  { id: 7, concept: "Hotel Oban", total: 145.95, perPerson: 72.975, category: "🏨 Alojamiento", date: "28 jul" },
+  { id: 8, concept: "Hotel última noche Edimburgo", total: 124.36, perPerson: 62.18, category: "🏨 Alojamiento", date: "4 ago" },
 ];
